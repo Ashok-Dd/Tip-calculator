@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        .container{
+            background-color: rgb(41, 43, 40);
+            border: 4px solid violet;
+            
+            color: whitesmoke;
+            width: 30%;
+            height: 580px;
+            margin-left: 35%;
+            text-align: center;
+            font-size: 30px;
+            margin-top: 4%;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 0 20px violet;
+        }
+        input[type="number"]{
+            width: 250px;
+            height: 30px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        button{
+            width: 150px;
+            height: 30px;
+            border: 2px solid violet;
+            background-color: violet;
+            color: rgb(41, 43, 40);
+            border-radius: 8px;
+            font-size: large;
+            cursor: pointer;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+
+        button:hover{
+            background-color: violet;
+
+            box-shadow: 0 0 20px violet;
+            
+        }
+        p{
+            color: red;
+            font-size: 20px;
+        }
+        h1{
+            margin-top: 20px;
+            text-align: center;
+            color: whitesmoke;
+        }
+        @media screen and (max-width : 480px) {
+            .container{
+                width: 90%;
+                height: 500px;
+                margin-left: 4%;
+                margin-top: 30%;
+                font-size: 27px;
+            }
+            input[type="number"]{
+            width: 200px;
+            height: 30px;
+            font-size: 19px;
+            border-radius: 10px;
+        }
+        }
+    </style>
+</head>
+<body bgcolor="rgb(41, 43, 40)">
+    <div class="container">
+        <br>
+        <u><h2>Tip Calculator</h2></u>
+        <br><br>
+        <label for="bill">Bill : </label>
+        <input type="number" id="bill" min="0" required placeholder=" Enter your Bill">
+        <br><br>
+        <label for="tip">Tip % : </label>
+        <input type="number" id="tip" min="0" required placeholder=" In percentage">
+        <br><br>
+        <button onclick="tip()">Calculate</button>
+        <br><br>
+        
+        
+        <h2>Tip = <span id="result">____</span></h2>
+        <br>
+        <h2>Total Bill = <span id="total-result">____</span></h2>
+
+    </div>
+    
+    <script>
+        function tip(){
+            let bill=document.getElementById('bill').value;
+            let tip_percent=document.getElementById('tip').value;
+            let tip=bill*tip_percent/100;
+            let total=parseInt(tip)+parseInt(bill);
+            document.getElementById('result').innerHTML=tip+'/-';
+            document.getElementById('total-result').innerHTML=total+'/-';
+
+
+        }
+        
+    </script>
+</body>
+</html>
